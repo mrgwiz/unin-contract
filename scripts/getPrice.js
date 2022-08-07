@@ -1,6 +1,8 @@
 const hre = require("hardhat");
+const dotenv = require("dotenv");
+dotenv.config();
 
-const addr = "0xD0ecEa17e11A8549F904f200580C57339CD7A899";
+const addr = process.env.CONTRACT;
 
 async function main() {
   const Unin = await hre.ethers.getContractAt("Unin", addr);
