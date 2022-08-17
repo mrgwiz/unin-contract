@@ -2,6 +2,12 @@
 
 This is the solidity contract portion of the Universal Inventory system or UNIN.
 
+See also:
+
+[UNIN-Client](https://github.com/mrgwiz/unin-client)
+
+[UNIN-API](https://github.com/mrgwiz/unin-api)
+
 ## Install Node Modules
 
 ```
