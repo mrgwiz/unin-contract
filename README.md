@@ -61,7 +61,7 @@ Copy the url (ex `http://127.0.0.1:8545/`) and add one of the private keys to th
 
 
 ```shell
-npx hardhat run scripts/deploy.js
+npx hardhat run scripts/deploy.js --network localhost
 ```
 
 Check in one the terminal your node is running from and you should see something like this:

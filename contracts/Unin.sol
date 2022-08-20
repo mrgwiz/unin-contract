@@ -42,16 +42,22 @@ contract Unin is ERC721,ERC721Burnable,ERC721Enumerable,ERC721URIStorage,Ownable
         public
         payable
     {
-        require(totalSupply() < maxSupply);
-        require(msg.value >= currentPrice, "Insufficient funds");
-
-        _balance += msg.value;
+        require(totalSupply() < maxSupply, "Insufficient supply.");
 
         string memory uri = "";
+
+        uint sum = 0;
         uri = Strings.toString(attrs[0]);
         for (uint i = 1; i < attrs.length; i++) {
+            if (i > 0) sum += attrs[i];
             uri = string(abi.encodePacked(uri, ",", Strings.toString(attrs[i])));
         }
+
+        require((attrs[0] >= 1 && attrs[0] <= 5), "Invalid type.");
+        require(sum == 100, "Invalid attributes.");
+        require(msg.value >= currentPrice, "Insufficient funds.");
+
+        _balance += msg.value;
 
         uint256 tokenId = _tokenIds.current();
         _safeMint(addr, tokenId);
